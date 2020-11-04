@@ -5,6 +5,7 @@ body {
 #search-div * {
     margin: auto;
 }
+
 #searchButton {
     border-radius: 25px;
     background-color: white;
@@ -29,8 +30,48 @@ body {
     text-align: center;
 }
 
+.row {
+    margin: 1% 0;
+    display: flex;
+}
+
+.invisibleColumn {
+    display: inline-block;
+    width: 25%;
+    flex: 1;
+    margin: 0 1%;
+    padding: 0 2%;
+    border: 2px solid #353535;
+}
+
+.indicator {
+    background-color: yellow;
+    width: 15px;
+    height: 15px;
+    padding: 0;
+    margin: 10px 0 0;
+    border-radius: 15px;
+}
+
+.column {
+    background-color: #555555;
+    display: inline-block;
+    border-radius: 25px;
+    width: 25%;
+    flex: 1;
+    margin: 0 1%;
+    padding: 0 2%;
+    border: 2px solid white;
+    text-align: center;
+}
+
+@media (min-width:960px) {
+    #result-div {
+        width: 900px;
+    }
+}
+
 #result-div {
-    width: 450px;
     height: 450px;
     position: absolute;
     top: 25vh;
@@ -43,10 +84,14 @@ body {
     color: aliceblue;
     display: none;
 }
+#alone {
+    margin: auto;
+}
 
-#searchbar:focus{
+#searchbar:focus, #searchButton:focus{
     outline: none;
 }
+
 
 #searchbar {
     padding: 0 30px;
