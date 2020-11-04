@@ -1,0 +1,8 @@
+#search-div {
+    width: 300px;
+}
+
+#error-div {
+    /*visibility: hidden;*/
+    border: black 1px solid;
+}
