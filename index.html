@@ -12,9 +12,19 @@
 
 <body>
 
-<input type="text" id="searchbar" name="q" placeholder="Search your postal code">
-<button type="button">Search</button>
+<div id="search-div">
+    <input type="text" id="searchbar" name="q" placeholder="Search your postal code here">
+    <button onclick="search()" type="button">Search</button>
+    <div id="error-div">
+        <p>An error occured...</p>
+    </div>
+</div>
+
+<div id="result-div">
+
+</div>
 
 <script src="js/scripts.js"></script>
+
 </body>
 </html>
