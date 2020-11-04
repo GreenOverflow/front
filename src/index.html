@@ -13,15 +13,19 @@
 <body>
 
 <div id="search-div">
-    <input type="text" id="searchbar" name="q" placeholder="Search your postal code here">
-    <button onclick="search()" type="button">Search</button>
-    <div id="error-div">
-        <p>An error occured...</p>
-    </div>
+    <input onkeydown="keyPressed()" type="text" id="searchbar" name="q" placeholder="Search your postal code here">
+    <button onclick="search()" id="searchButton" type="button">Search</button>
 </div>
 
 <div id="result-div">
 
+    <p>Global score : <span id="global-score"></span></p>
+    <p><span id="region-name"></span> score : <span id="region-score"></span></p>
+    <p><span id="departement-name"></span> score : <span id="departement-score"></span></p>
+    <p>Digital interface access score : <span id="digitalInterfaceAccess-score"></span></p>
+    <p>Information access score : <span id="informationAccess-score"></span></p>
+    <p>Administrative competences score : <span id="administrativeCompetences-score"></span></p>
+    <p>Digital And academic competences access score : <span id="digitalAndScolarCompetences-score"></span></p>
 </div>
 
 <script src="js/scripts.js"></script>
