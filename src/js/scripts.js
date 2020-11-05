@@ -8,9 +8,9 @@ function search() {
   let value = document.getElementById("searchbar").value;
   let reg_only_digits = new RegExp('^[0-9]*$');
   if(!reg_only_digits.test(value))
-    alert("Postal code must only contains digits !")
-  else if (value.length != 5)
-    alert("Postal code must always contains 5 digits, nothing more nothing less !")
+    alert("Postal code must only contains digits !");
+  else if (value.length !== 5)
+    alert("Postal code must always contains 5 digits, nothing more nothing less !");
   else
     getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResult, "An error occurred...");
     //showResult(exampleData)
@@ -75,7 +75,7 @@ function getUrl(url, callback, errorMessage) {
         callback(JSON.parse(xmlHttp.responseText));
       }
       else if (xmlHttp.status === 404) {
-        alert("ERROR 404 : Your postal code does not seem to exist !")
+        alert("ERROR 404 : Your postal code does not seem to exist !");
       }
       else {
         alert(errorMessage)
