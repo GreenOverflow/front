@@ -1,40 +1,47 @@
 //let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
 let resultShown = false;
 
-//TODO: add cache
 let cache = {};
 
 function search() {
   let value = document.getElementById("searchbar").value;
   let reg_only_digits = new RegExp('^[0-9]*$');
-  if(!reg_only_digits.test(value))
+  if (!reg_only_digits.test(value))
     alert("Postal code must only contains digits !");
   else if (value.length !== 5)
     alert("Postal code must always contains 5 digits, nothing more nothing less !");
-  else
-    getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResult, "An error occurred...");
-    //showResult(JSON.parse(exampleData))
+  else {
+    if (cache[value] == null) {
+      getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value, "An error occurred...");
+      //showResultAndCache(value, JSON.parse(exampleData));
+    } else {
+      showResult(cache[value]);
+    }
+  }
+}
+
+function showResultAndCache(value, jsonDump) {
+  cache[value] = jsonDump;
+  showResult(jsonDump);
 }
 
 function color(MaxValue, value) {
-  let color = '';
+
   if (value > MaxValue * 0.8) {
-    return color = 'green'
+    return 'green'
   } else if (value > MaxValue * 0.6) {
-    return color = 'lightgreen'
+    return 'lightgreen'
   }  else if (value > MaxValue * 0.4) {
-    return color = 'yellow'
+    return 'yellow'
   }  else if (value > MaxValue * 0.2) {
-    return color = 'orange'
+    return 'orange'
   } else {
-    return color = 'red'
+    return 'red'
   }
 }
 
 
-function showResult(jsonDump) {
-
-  //TODO: revoir les palliers
+function showResult(jsonDump, value) {
   document.getElementById("global-score").innerText = jsonDump["global"];
   document.getElementById("global-score-indicator").style.backgroundColor = color(276, jsonDump["global"]);
 
@@ -73,12 +80,12 @@ function showResult(jsonDump) {
 }
 
 
-function getUrl(url, callback, errorMessage) {
+function getUrl(url, callback, value, errorMessage) {
   let xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState === 4) {
       if (xmlHttp.status === 200) {
-        callback(JSON.parse(xmlHttp.responseText));
+        callback(JSON.parse(xmlHttp.responseText), value);
       }
       else if (xmlHttp.status === 404) {
         alert("ERROR 404 : Your postal code does not seem to exist !");
@@ -88,6 +95,6 @@ function getUrl(url, callback, errorMessage) {
       }
     }
   };
-  xmlHttp.open("GET", url, true); // true for asynchronous
+  xmlHttp.open("GET", url, true);
   xmlHttp.send(null);
 }
