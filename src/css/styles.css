@@ -50,14 +50,14 @@ button {
     display: flex;
 }
 
-.invisibleColumn {
+/*.invisibleColumn {
     display: inline-block;
     width: 25%;
     flex: 1;
     margin: 0 1%;
     padding: 0 2%;
     border: 2px solid #353535;
-}
+}*/
 
 .indicator {
     background-color: yellow;
@@ -68,7 +68,7 @@ button {
     border-radius: 15px;
 }
 
-.column {
+.column, .alone {
     background-color: #555555;
     display: inline-block;
     border-radius: 25px;
@@ -78,6 +78,10 @@ button {
     padding: 0 2%;
     border: 2px solid white;
     text-align: center;
+}
+
+.alone {
+    width: auto;
 }
 
 
