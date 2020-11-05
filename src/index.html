@@ -13,7 +13,8 @@
 <body>
 
 <div id="search-div">
-    <input onkeydown="keypressed(event)" type="text" id="searchbar" name="q" placeholder="Recherchez ici votre code postal">
+    <input onkeydown="keypressed(event)" type="text" id="searchbar" name="q"
+           placeholder="Recherchez ici votre code postal">
     <button onclick="search()" id="searchButton" type="button">Rechercher</button>
     <a class="linkButton" id="pdfDownload" target="_blank" href="">
         <button id="pdfDownloadButton">Télécharger le résultat au format PDF</button>
@@ -23,31 +24,57 @@
 <div id="title-div">
     <h1>INDICE DE FRAGILITE NUMERIQUE</h1>
     <p>L'indice de fragilité numérique a été créé afin d'aider à contrer les exclusions d'information.
-        Il permet entre autres de localiser les endroits où les personnes trouvent difficile de s'adapter aux changements causés par la révolution de l'information et d'engager des plans d'actions pour apporter des solutions.</p>
+        Il permet entre autres de localiser les endroits où les personnes trouvent difficile de s'adapter aux
+        changements causés par la révolution de l'information et d'engager des plans d'actions pour apporter des
+        solutions.</p>
 </div>
 
 <div id="result-div">
-    <div class="row">
-        <div class="alone">
-            <div id="global-score-indicator" class="indicator"></div>
-            <h3>Score de <span id="city-name"></span></h3>
-            <h1><span id="global-score"></span></h1>
-            <p id = "conclusion"></p>
-        </div>
-        <!--- <div class="invisibleColumn"></div>
+        <div class="row">
+            <div class="alone">
+                <div id="global-score-indicator" class="indicator"></div>
+                <h3>Score de <span id="city-name"></span></h3>
+                <h1><span id="global-score"></span></h1>
+                <p id="conclusion"></p>
+            </div>
+            <!--- <div class="invisibleColumn"></div>
 
-        <div id="global-score-div" class="column">
-            <div id="global-score-indicator" class="indicator"></div>
-            <h3>Global score</h3>
-            <h1><span id="global-score"></span></h1>
+            <div id="global-score-div" class="column">
+                <div id="global-score-indicator" class="indicator"></div>
+                <h3>Global score</h3>
+                <h1><span id="global-score"></span></h1>
+            </div>
+
+            <div class="invisibleColumn"></div> --->
         </div>
 
-        <div class="invisibleColumn"></div> --->
-    </div>
-    <div class="row">
+
+        <div class="row">
+            <div id="informationAccess-score-div" class="column">
+                <div id="informationAccess-score-indicator" class="indicator"></div>
+                <h3>Score d'accès à l'information</h3>
+                <h1 id="informationAccess-score"></h1>
+            </div>
+            <div id="administrativeCompetences-score-div" class="column">
+                <div id="administrativeCompetences-score-indicator" class="indicator"></div>
+                <h3>Score de compétences administratives</h3>
+                <h1 id="administrativeCompetences-score"></h1>
+            </div>
+            <div id="digitalAndScolarCompetences-score-div" class="column">
+                <div id="digitalAndScolarCompetences-score-indicator" class="indicator"></div>
+                <h3>Score de compétence numériques et scolaires</h3>
+                <h1 id="digitalAndScolarCompetences-score"></h1>
+            </div>
+            <div id="digitalInterfaceAccess-score-div" class="column">
+                <div id="digitalInterfaceAccess-score-indicator" class="indicator"></div>
+                <h3>Score d'accès aux interfaces numériques</h3>
+                <h1 id="digitalInterfaceAccess-score"></h1>
+            </div>
+        </div>
+    <div class="row separate-row">
         <div id="region-score-div" class="column">
             <div id="region-score-indicator" class="indicator"></div>
-            <h3>Score de la région <span id="region-name"></span> </h3>
+            <h3>Score de la région <span id="region-name"></span></h3>
             <h1><span id="region-score"></span></h1>
         </div>
         <div id="departement-score-div" class="column">
@@ -55,28 +82,7 @@
             <h3>Score du département <span id="departement-name"></span></h3>
             <h1><span id="departement-score"></span></h1>
         </div>
-        <div id="digitalInterfaceAccess-score-div" class="column">
-            <div id="digitalInterfaceAccess-score-indicator" class="indicator"></div>
-            <h3>Score d'accès aux interfaces numériques</h3>
-            <h1 id="digitalInterfaceAccess-score"></h1>
-        </div>
-    </div>
-    <div class="row">
-        <div id="informationAccess-score-div" class="column">
-            <div id="informationAccess-score-indicator" class="indicator"></div>
-            <h3>Score d'accès à l'information</h3>
-            <h1 id="informationAccess-score"></h1>
-        </div>
-        <div id="administrativeCompetences-score-div" class="column">
-            <div id="administrativeCompetences-score-indicator" class="indicator"></div>
-            <h3>Score de compétences administratives</h3>
-            <h1 id="administrativeCompetences-score"></h1>
-        </div>
-        <div id="digitalAndScolarCompetences-score-div" class="column">
-            <div id="digitalAndScolarCompetences-score-indicator" class="indicator"></div>
-            <h3>Score de compétence numériques/scolaires</h3>
-            <h1 id="digitalAndScolarCompetences-score"></h1>
-        </div>
+
     </div>
 </div>
 

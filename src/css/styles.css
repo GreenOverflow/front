@@ -14,6 +14,13 @@ body {
     }
 }
 
+.width25 {
+
+}
+
+.width50 {
+
+}
 
 .linkButton, .linkButton:focus, .linkButton:visited, .linkButton:active {
     color: black;
@@ -60,7 +67,6 @@ button {
 }*/
 
 .indicator {
-    background-color: yellow;
     width: 15px;
     height: 15px;
     padding: 0;
@@ -72,7 +78,6 @@ button {
     background-color: #555555;
     display: inline-block;
     border-radius: 25px;
-    width: 25%;
     flex: 1;
     margin: 0 1%;
     padding: 0 2%;
@@ -94,7 +99,7 @@ button {
     right: 0;
     margin: auto;
     color: aliceblue;
-    display: none;
+    /*display: none;*/
 }
 
 
