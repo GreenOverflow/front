@@ -1,4 +1,4 @@
-//let exampleData = '{"global":10,"region":62,"regionName":"Occitanie","departement":50,"departementName":"Hérault","digitalInterfaceAccess":123,"informationAccess":456,"administrativeCompetences":789,"digitalAndScolarCompetences":42}';
+let exampleData = '{"global":10,"region":62,"regionName":"Occitanie","departement":50,"departementName":"Hérault","digitalInterfaceAccess":123,"informationAccess":456,"administrativeCompetences":789,"digitalAndScolarCompetences":42}';
 let resultShown = false;
 
 //TODO: add cache
@@ -6,10 +6,12 @@ let cache = {};
 
 function search() {
   let value = document.getElementById("searchbar").value;
-
-  //TODO: vérifier que value soit 5 chiffres
-  getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResult, "An error occurred...");
-  //showResult(exampleData)
+  let reg_only_digits = new RegExp('^[0-9]*$');
+  if(!reg_only_digits.test(value))
+    alert("Postal code can only contains digits !")
+  else
+    //getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResult, "An error occurred...");
+    showResult(exampleData)
 }
 
 function color(first, second, value) {
