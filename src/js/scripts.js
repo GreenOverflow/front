@@ -1,4 +1,4 @@
-let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
+//let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
 let resultShown = false;
 
 let cache = {};
@@ -12,8 +12,8 @@ function search() {
     alert("Postal code must always contains 5 digits, nothing more nothing less !");
   else {
     if (cache[value] == null) {
-     // getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value, "An error occurred...");
-      showResultAndCache(value, JSON.parse(exampleData));
+      getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value, "An error occurred...");
+      //showResultAndCache(value, JSON.parse(exampleData));
     } else {
       showResult(value, cache[value]);
     }
@@ -66,11 +66,15 @@ function showResult(jsonDump, value) {
   document.getElementById("digitalAndScolarCompetences-score-indicator").style.backgroundColor = color(431, jsonDump["digitalAndScolarCompetences"]);
 
   if (!resultShown) {
-    document.getElementById("search-div").style.width = "auto";
-    document.getElementById("search-div").style.height = "auto";
-    document.getElementById("search-div").style.position = "static";
-    document.getElementById("result-div").style.display = "block";
-    document.getElementById("result-div").style.position = "static";
+    let searchdiv = document.getElementById("search-div");
+    searchdiv.style.width = "auto";
+    searchdiv.style.height = "auto";
+    searchdiv.style.position = "static";
+
+    let resultdiv = document.getElementById("result-div");
+    resultdiv.style.display = "block";
+    resultdiv.style.position = "static";
+
     document.getElementById("searchbar").style.display = "inline-block";
     document.getElementById("searchButton").style.display = "inline-block";
     document.getElementById("pdfDownloadButton").style.visibility = "visible";
@@ -82,7 +86,6 @@ function showResult(jsonDump, value) {
   }
 
 }
-
 
 function getUrl(url, callback, value, errorMessage) {
   let xmlHttp = new XMLHttpRequest();
