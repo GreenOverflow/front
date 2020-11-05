@@ -71,10 +71,13 @@ function getUrl(url, callback, errorMessage) {
   let xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState === 4) {
-      //TODO: faire le cas de la 404
       if (xmlHttp.status === 200) {
         callback(JSON.parse(xmlHttp.responseText));
-      } else {
+      }
+      else if (xmlHttp.status === 404) {
+        alert("ERROR 404 : Your postal code does not seem to exist !")
+      }
+      else {
         alert(errorMessage)
       }
     }
