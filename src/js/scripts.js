@@ -1,10 +1,13 @@
 //let exampleData = '{"global":10,"region":62,"regionName":"Occitanie","departement":50,"departementName":"Hérault","digitalInterfaceAccess":123,"informationAccess":456,"administrativeCompetences":789,"digitalAndScolarCompetences":42}';
 let resultShown = false;
 
+//TODO: add cache
 let cache = {};
 
 function search() {
   let value = document.getElementById("searchbar").value;
+
+  //TODO: vérifier que value soit 5 chiffres
   getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResult, "An error occurred...");
   //showResult(exampleData)
 }
@@ -21,8 +24,7 @@ function color(first, second, value) {
 
 function showResult(jsonDump) {
 
-
-
+  //TODO: revoir les palliers
   document.getElementById("global-score").innerText = jsonDump["global"];
   document.getElementById("global-score-indicator").style.backgroundColor = color(138,220, jsonDump["global"]);
 
@@ -65,6 +67,7 @@ function getUrl(url, callback, errorMessage) {
   let xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState === 4) {
+      //TODO: faire le cas de la 404
       if (xmlHttp.status === 200) {
         callback(JSON.parse(xmlHttp.responseText));
       } else {
