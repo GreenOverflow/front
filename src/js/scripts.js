@@ -44,19 +44,9 @@ function showResult(jsonDump) {
 
 }
 
-function governmentApiCallback(jsonDump) {
-  getUrl('http://localhost:8080/commune/' + value + '/statistics', governmentApiCallback, "An error occurred...");
-  if (jsonDump.length === 0) {
-    alert("No city found with that postal code")
-  }
-  console.log(jsonDump);
-}
-
-
-
 
 function getUrl(url, callback, errorMessage) {
-  var xmlHttp = new XMLHttpRequest();
+  let xmlHttp = new XMLHttpRequest();
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState === 4) {
       if (xmlHttp.status === 200) {
