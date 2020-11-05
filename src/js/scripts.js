@@ -1,4 +1,4 @@
-let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
+//let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
 let resultShown = false;
 
 let cache = {};
@@ -12,8 +12,8 @@ function search() {
     alert("Le code postal doit contenir 5 chiffres, ni plus, ni moins !");
   else {
     if (cache[value] == null) {
-      //getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value);
-      showResultAndCache(value, JSON.parse(exampleData));
+      getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value);
+      //showResultAndCache(value, JSON.parse(exampleData));
     } else {
       showResult(value, cache[value]);
     }
