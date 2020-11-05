@@ -15,14 +15,14 @@ function search() {
      // getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value, "An error occurred...");
       showResultAndCache(value, JSON.parse(exampleData));
     } else {
-      showResult(cache[value]);
+      showResult(value, cache[value]);
     }
   }
 }
 
 function showResultAndCache(value, jsonDump) {
   cache[value] = jsonDump;
-  showResult(jsonDump);
+  showResult(value, jsonDump);
 }
 
 function color(MaxValue, value) {
@@ -66,12 +66,15 @@ function showResult(jsonDump, value) {
   document.getElementById("digitalAndScolarCompetences-score-indicator").style.backgroundColor = color(431, jsonDump["digitalAndScolarCompetences"]);
 
   if (!resultShown) {
-    document.getElementById("search-div").style.width = "500px";
+    document.getElementById("search-div").style.width = "auto";
     document.getElementById("search-div").style.height = "auto";
-    document.getElementById("result-div").style.display = "inline-block";
-    document.getElementById("search-div").style.position = "relative";
+    document.getElementById("search-div").style.position = "static";
+    document.getElementById("result-div").style.display = "block";
+    document.getElementById("result-div").style.position = "static";
     document.getElementById("searchbar").style.display = "inline-block";
     document.getElementById("searchButton").style.display = "inline-block";
+    document.getElementById("pdfDownloadButton").style.visibility = "visible";
+    document.getElementById("pdfDownload").href = 'http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/stat_report.pdf';
   }
 
   if (!resultShown) {
@@ -86,7 +89,7 @@ function getUrl(url, callback, value, errorMessage) {
   xmlHttp.onreadystatechange = function() {
     if (xmlHttp.readyState === 4) {
       if (xmlHttp.status === 200) {
-        callback(JSON.parse(xmlHttp.responseText), value);
+        callback(value, JSON.parse(xmlHttp.responseText));
       }
       else if (xmlHttp.status === 404) {
         alert("ERROR 404 : Your postal code does not seem to exist !");

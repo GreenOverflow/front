@@ -7,22 +7,25 @@ body {
     margin: auto;
     text-align: center;
 }
+
 @media (max-width:960px) {
     #title-div {
         width: 90%;
     }
 }
 
-#search-div * {
-    margin: auto;
-}
 
-#searchButton {
+.linkButton, .linkButton:focus, .linkButton:visited, .linkButton:active {
+    color: black;
+    outline: none;
+    text-decoration: none;
+}
+button {
     border-radius: 25px;
     background-color: white;
     padding: 5px 10px;
     border: 0;
-    margin-top: 10px;
+    margin: 10px auto;
     height: 28px;
 }
 
@@ -77,11 +80,6 @@ body {
     text-align: center;
 }
 
-@media (min-width:960px) {
-    #result-div {
-        width: 900px;
-    }
-}
 
 #result-div {
     height: 450px;
@@ -90,12 +88,12 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-
     margin: auto;
-
     color: aliceblue;
     display: none;
 }
+
+
 
 #searchbar:focus, #searchButton:focus{
     outline: none;
@@ -117,4 +115,16 @@ body {
 
 #search-div {
     display: inline-block;
+}
+
+#pdfDownload {
+    display: inline-block;
+    visibility: hidden;
+}
+
+
+@media (min-width:960px) {
+    #result-div {
+        width: 900px ;
+    }
 }
