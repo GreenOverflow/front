@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>GreenOverflow | Index of the digital fragility</title>
+    <title>Index of the digital fragility</title>
     <meta name="description" content="View the index of the digital fragility of your region">
     <link rel="stylesheet" href="css/styles.css?v=1.0">
 
@@ -13,19 +13,56 @@
 <body>
 
 <div id="search-div">
-    <input onkeydown="keyPressed()" type="text" id="searchbar" name="q" placeholder="Search your postal code here">
+    <input type="text" id="searchbar" name="q" placeholder="Search your postal code here">
     <button onclick="search()" id="searchButton" type="button">Search</button>
 </div>
 
 <div id="result-div">
+    <div class="row">
+        <div class="invisibleColumn"></div>
 
-    <p>Global score : <span id="global-score"></span></p>
-    <p><span id="region-name"></span> score : <span id="region-score"></span></p>
-    <p><span id="departement-name"></span> score : <span id="departement-score"></span></p>
-    <p>Digital interface access score : <span id="digitalInterfaceAccess-score"></span></p>
-    <p>Information access score : <span id="informationAccess-score"></span></p>
-    <p>Administrative competences score : <span id="administrativeCompetences-score"></span></p>
-    <p>Digital And academic competences access score : <span id="digitalAndScolarCompetences-score"></span></p>
+        <div id="global-score-div" class="column">
+            <div id="global-score-indicator" class="indicator"></div>
+            <h3>Global score</h3>
+            <h1><span id="global-score"></span></h1>
+        </div>
+
+        <div class="invisibleColumn"></div>
+    </div>
+    <div class="row">
+        <div id="region-score-div" class="column">
+            <div id="region-score-indicator" class="indicator"></div>
+            <h3><span id="region-name"></span> score</h3>
+            <h1><span id="region-score"></span></h1>
+        </div>
+        <div id="departement-score-div" class="column">
+            <div id="departement-score-indicator" class="indicator"></div>
+            <h3><span id="departement-name"></span> score</h3>
+            <h1><span id="departement-score"></span></h1>
+        </div>
+        <div id="digitalInterfaceAccess-score-div" class="column">
+            <div id="digitalInterfaceAccess-score-indicator" class="indicator"></div>
+            <h3>Digital interface access score</h3>
+            <h1 id="digitalInterfaceAccess-score"></h1>
+        </div>
+    </div>
+    <div class="row">
+        <div id="informationAccess-score-div" class="column">
+            <div id="informationAccess-score-indicator" class="indicator"></div>
+            <h3>Information access score</h3>
+            <h1 id="informationAccess-score"></h1>
+        </div>
+        <div id="administrativeCompetences-score-div" class="column">
+            <div id="administrativeCompetences-score-indicator" class="indicator"></div>
+            <h3>Administrative competences score</h3>
+            <h1 id="administrativeCompetences-score"></h1>
+        </div>
+        <div id="digitalAndScolarCompetences-score-div" class="column">
+            <div id="digitalAndScolarCompetences-score-indicator" class="indicator"></div>
+            <h3>Digital And academic competences access score</h3>
+            <h1 id="digitalAndScolarCompetences-score"></h1>
+        </div>
+    </div>
 </div>
 
 <script src="js/scripts.js"></script>
