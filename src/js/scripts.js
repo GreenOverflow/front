@@ -1,8 +1,12 @@
-//var exampleData = '{"global":10,"region":62,"regionName":"Occitanie","departement":50,"departementName":"Hérault","digitalInterfaceAccess":123,"informationAccess":456,"administrativeCompetences":789,"digitalAndScolarCompetences":42}';
+//let exampleData = '{"global":10,"region":62,"regionName":"Occitanie","departement":50,"departementName":"Hérault","digitalInterfaceAccess":123,"informationAccess":456,"administrativeCompetences":789,"digitalAndScolarCompetences":42}';
+let resultShown = false;
+
+let cache = {};
 
 function search() {
   let value = document.getElementById("searchbar").value;
-  getUrl('http://vps-45d5666d.vps.ovh.net:8080/commune/' + value + '/statistics', showResult, "An error occurred...");
+  getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResult, "An error occurred...");
+  //showResult(exampleData)
 }
 
 function color(first, second, value) {
@@ -16,6 +20,8 @@ function color(first, second, value) {
 
 
 function showResult(jsonDump) {
+
+
 
   document.getElementById("global-score").innerText = jsonDump["global"];
   document.getElementById("global-score-indicator").style.backgroundColor = color(138,220, jsonDump["global"]);
@@ -40,7 +46,17 @@ function showResult(jsonDump) {
   document.getElementById("digitalAndScolarCompetences-score").innerText = jsonDump["digitalAndScolarCompetences"];
   document.getElementById("digitalAndScolarCompetences-score-indicator").style.backgroundColor = color(215,344, jsonDump["digitalAndScolarCompetences"]);
 
-  document.getElementById("result-div").style.display = "inline-block";
+  if (!resultShown) {
+    document.getElementById("search-div").style.width = "500px";
+    document.getElementById("result-div").style.display = "inline-block";
+    document.getElementById("search-div").style.position = "relative";
+    document.getElementById("searchbar").style.display = "inline-block";
+    document.getElementById("searchButton").style.display = "inline-block";
+  }
+
+  if (!resultShown) {
+    resultShown = true;
+  }
 
 }
 
