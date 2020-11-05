@@ -1,0 +1,127 @@
+openapi: 3.0.1
+info:
+  title: Digital Fragility Index Swagger
+  description: 'This is our digital fragility index API for the Design4Green challenge of 2020.'
+  version: 1.0.0
+servers:
+- url: http://vps-45d5666d.vps.ovh.net/{basePath}
+  variables:
+    basePath:
+      default: 'api'
+tags:
+- name: scores
+  description: Everything about digital fragility index
+paths:
+  /commune/{postalCode}/statistics:
+    get:
+      tags:
+      - scores
+      summary: Get the scores of your city by postal code
+      operationId: getStatistics
+      parameters:
+      - name: postalCode
+        in: path
+        description: postal code of the city you want to get score
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiResponse'
+        404:
+          description: unable to find this postal code
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: an unknown error occured
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  '/commune/{postalCode}/stat_report.pdf':
+    get:
+      tags:
+      - scores
+      summary: get a PDF resume of your city's scores
+      operationId: getPDF
+      parameters:
+      - name: postalCode
+        in: path
+        description: postal code of the city you want to get score
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: successful operation
+          content:
+            application/pdf:
+              schema:
+                type: string
+        404:
+          description: unable to find this postal code
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        500:
+          description: an unknown error occured
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        code:
+          type: string
+    ApiResponse:
+      type: object
+      properties:
+        communeName:
+          description: 'The name of the city'
+          type: string
+        regionName:
+          description: 'The name of the région'
+          type: string
+        departementName:
+          description: 'The name of the département'
+          type: string
+        global:
+          description: 'The global score of value of that city'
+          type: integer
+          format: int32
+        region:
+          description: 'The région score value'
+          type: integer
+          format: int32
+        departement:
+          description: 'The département score value'
+          type: integer
+          format: int32
+        digitalInterfaceAccess:
+          description: 'The digital interface access score value'
+          type: integer
+          format: int32
+        informationAccess:
+          description: 'The information access score value'
+          type: integer
+          format: int32
+        administrativeCompetences:
+          description: 'The administrative competences score value'
+          type: integer
+          format: int32
+        digitalAndScolarCompetences:
+          description: 'The digital and academic competences score value'
+          type: integer
+          format: int32

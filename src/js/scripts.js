@@ -107,6 +107,8 @@ function showResult(value, jsonDump) {
   document.getElementById("administrativeCompetences-score").innerText = jsonDump["administrativeCompetences"];
   document.getElementById("digitalAndScolarCompetences-score").innerText = jsonDump["digitalAndScolarCompetences"];
 
+  document.getElementById("pdfDownload").href = 'http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/stat_report.pdf';
+
 
   if (!resultShown) {
     document.getElementsByTagName("BODY")[0].style.height = "auto";
@@ -123,7 +125,6 @@ function showResult(value, jsonDump) {
 
     document.getElementById("searchbar").style.display = "inline-block";
     document.getElementById("searchButton").style.display = "inline-block";
-    document.getElementById("pdfDownload").href = 'http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/stat_report.pdf';
     document.getElementById("pdfDownloadButton").style.visibility = "visible";
 
     resultdiv.style.display = "block";
