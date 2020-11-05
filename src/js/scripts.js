@@ -1,4 +1,4 @@
-//let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
+let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
 let resultShown = false;
 
 let cache = {};
@@ -12,8 +12,8 @@ function search() {
     alert("Postal code must always contains 5 digits, nothing more nothing less !");
   else {
     if (cache[value] == null) {
-      getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value, "An error occurred...");
-      //showResultAndCache(value, JSON.parse(exampleData));
+     // getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value, "An error occurred...");
+      showResultAndCache(value, JSON.parse(exampleData));
     } else {
       showResult(cache[value]);
     }
@@ -67,6 +67,7 @@ function showResult(jsonDump, value) {
 
   if (!resultShown) {
     document.getElementById("search-div").style.width = "500px";
+    document.getElementById("search-div").style.height = "auto";
     document.getElementById("result-div").style.display = "inline-block";
     document.getElementById("search-div").style.position = "relative";
     document.getElementById("searchbar").style.display = "inline-block";

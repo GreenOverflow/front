@@ -1,6 +1,12 @@
 body {
     background-color: #353535;
 }
+#title-div {
+    color: white;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
 
 #search-div * {
     margin: auto;
