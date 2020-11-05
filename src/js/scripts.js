@@ -66,14 +66,21 @@ function showResult(jsonDump, value) {
   document.getElementById("digitalAndScolarCompetences-score-indicator").style.backgroundColor = color(431, jsonDump["digitalAndScolarCompetences"]);
 
   if (!resultShown) {
-    document.getElementById("search-div").style.width = "auto";
-    document.getElementById("search-div").style.height = "auto";
-    document.getElementById("search-div").style.position = "static";
-    document.getElementById("result-div").style.display = "block";
-    document.getElementById("result-div").style.position = "static";
+    let searchdiv = document.getElementById("search-div");
+    searchdiv.style.width = "auto";
+    searchdiv.style.height = "auto";
+    searchdiv.style.position = "static";
+
+    let resultdiv = document.getElementById("search-div");
+    resultdiv.style.display = "block";
+    resultdiv.style.position = "static";
+
     document.getElementById("searchbar").style.display = "inline-block";
+
     document.getElementById("searchButton").style.display = "inline-block";
+
     document.getElementById("pdfDownloadButton").style.visibility = "visible";
+
     document.getElementById("pdfDownload").href = 'http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/stat_report.pdf';
   }
 
@@ -82,7 +89,6 @@ function showResult(jsonDump, value) {
   }
 
 }
-
 
 function getUrl(url, callback, value, errorMessage) {
   let xmlHttp = new XMLHttpRequest();
