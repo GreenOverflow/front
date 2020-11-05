@@ -13,7 +13,7 @@
 <body>
 
 <div id="search-div">
-    <input onkeydown="keypressed(event)" type="text" id="searchbar" name="q"
+    <input type="text" id="searchbar" name="q"
            placeholder="Recherchez ici votre code postal">
     <button onclick="search()" id="searchButton" type="button">Rechercher</button>
     <a class="linkButton" id="pdfDownload" target="_blank" href="">
@@ -31,56 +31,45 @@
 
 <div id="result-div">
         <div class="row">
-            <div class="alone">
+            <div id="global-score-div" class="alone">
                 <div id="global-score-indicator" class="indicator"></div>
-                <h3>Score de <span id="city-name"></span></h3>
-                <h1><span id="global-score"></span></h1>
-                <p id="conclusion"></p>
+                <p class="big">Score de <span id="city-name"></span></p>
+                <p class="very-big"><span id="global-score"></span></p>
+                <p  id="conclusion"></p>
             </div>
-            <!--- <div class="invisibleColumn"></div>
-
-            <div id="global-score-div" class="column">
-                <div id="global-score-indicator" class="indicator"></div>
-                <h3>Global score</h3>
-                <h1><span id="global-score"></span></h1>
-            </div>
-
-            <div class="invisibleColumn"></div> --->
         </div>
-
-
         <div class="row">
             <div id="informationAccess-score-div" class="column">
                 <div id="informationAccess-score-indicator" class="indicator"></div>
-                <h3>Score d'accès à l'information</h3>
-                <h1 id="informationAccess-score"></h1>
+                <p class="big">Score d'accès à l'information</p>
+                <p class="very-big" id="informationAccess-score"></p>
             </div>
             <div id="administrativeCompetences-score-div" class="column">
                 <div id="administrativeCompetences-score-indicator" class="indicator"></div>
-                <h3>Score de compétences administratives</h3>
-                <h1 id="administrativeCompetences-score"></h1>
+                <p class="big">Score de compétences administratives</p>
+                <p class="very-big" id="administrativeCompetences-score"></p>
             </div>
             <div id="digitalAndScolarCompetences-score-div" class="column">
                 <div id="digitalAndScolarCompetences-score-indicator" class="indicator"></div>
-                <h3>Score de compétence numériques et scolaires</h3>
-                <h1 id="digitalAndScolarCompetences-score"></h1>
+                <p class="big">Score de compétence numériques et scolaires</p>
+                <p class="very-big" id="digitalAndScolarCompetences-score"></p>
             </div>
             <div id="digitalInterfaceAccess-score-div" class="column">
                 <div id="digitalInterfaceAccess-score-indicator" class="indicator"></div>
-                <h3>Score d'accès aux interfaces numériques</h3>
-                <h1 id="digitalInterfaceAccess-score"></h1>
+                <p class="big">Score d'accès aux interfaces numériques</p>
+                <p class="very-big" id="digitalInterfaceAccess-score"></p>
             </div>
         </div>
-    <div class="row separate-row">
-        <div id="region-score-div" class="column">
+    <div class="separate-row row">
+        <div id="region-score-div" class="column separate-column-left">
             <div id="region-score-indicator" class="indicator"></div>
-            <h3>Score de la région <span id="region-name"></span></h3>
-            <h1><span id="region-score"></span></h1>
+            <p class="big">Score de la région <span id="region-name"></span></p>
+            <p class="very-big"><span id="region-score"></span></p>
         </div>
         <div id="departement-score-div" class="column">
             <div id="departement-score-indicator" class="indicator"></div>
-            <h3>Score du département <span id="departement-name"></span></h3>
-            <h1><span id="departement-score"></span></h1>
+            <p class="big">Score du département <span id="departement-name"></span></p>
+            <p class="very-big"><span id="departement-score"></span></p>
         </div>
 
     </div>
