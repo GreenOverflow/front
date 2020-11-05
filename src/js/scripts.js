@@ -1,4 +1,3 @@
-//let exampleData = '{"communeName": "Paris 1er Arrondissement", "global": 50, "region": 120, "regionName": "\u00cele-de-France", "departement": 170, "departementName": "Paris", "digitalInterfaceAccess": 250, "informationAccess": 120, "administrativeCompetences": 75, "digitalAndScolarCompetences": 73}';
 let resultShown = false;
 
 let cache = {};
@@ -19,7 +18,6 @@ function search() {
   else {
     if (cache[value] == null) {
       getUrl('http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/statistics', showResultAndCache, value);
-      //showResultAndCache(value, JSON.parse(exampleData));
     } else {
       showResult(value, cache[value]);
     }
@@ -45,7 +43,6 @@ function color(MaxValue, value) {
   if (value > MaxValue * 0.8) {
     return 'green'
   } else if (value > MaxValue * 0.6) {
-    //return '#49BF4D'
     return '#62BF65'
   }  else if (value > MaxValue * 0.4) {
     return '#EE0'
@@ -54,11 +51,6 @@ function color(MaxValue, value) {
   } else {
     return 'red'
   }
-}
-
-function keypressed(e) {
-  console.log(e.key);
-
 }
 
 function setResultConclusion(value, communeName) {
@@ -115,8 +107,13 @@ function showResult(value, jsonDump) {
   document.getElementById("administrativeCompetences-score").innerText = jsonDump["administrativeCompetences"];
   document.getElementById("digitalAndScolarCompetences-score").innerText = jsonDump["digitalAndScolarCompetences"];
 
+  document.getElementById("pdfDownload").href = 'http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/stat_report.pdf';
+
 
   if (!resultShown) {
+    document.getElementsByTagName("BODY")[0].style.height = "auto";
+    document.getElementsByTagName("FOOTER")[0].style.position = "relative";
+
     let searchdiv = document.getElementById("search-div");
     searchdiv.style.width = "auto";
     searchdiv.style.height = "auto";
@@ -128,7 +125,6 @@ function showResult(value, jsonDump) {
 
     document.getElementById("searchbar").style.display = "inline-block";
     document.getElementById("searchButton").style.display = "inline-block";
-    document.getElementById("pdfDownload").href = 'http://vps-45d5666d.vps.ovh.net/api/commune/' + value + '/stat_report.pdf';
     document.getElementById("pdfDownloadButton").style.visibility = "visible";
 
     resultdiv.style.display = "block";
