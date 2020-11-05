@@ -12,10 +12,11 @@ body {
     padding: 5px 10px;
     border: 0;
     margin-top: 10px;
+    height: 28px;
 }
 
 #search-div {
-    width: 350px;
+    width: 360px;
     height: 350px;
     position: absolute;
     top:0;
@@ -84,9 +85,6 @@ body {
     color: aliceblue;
     display: none;
 }
-#alone {
-    margin: auto;
-}
 
 #searchbar:focus, #searchButton:focus{
     outline: none;
@@ -100,9 +98,11 @@ body {
     border: none;
     border-radius: 20px;
 }
+
 #search-div * {
     display:block;
 }
+
 
 #search-div {
     display: inline-block;
