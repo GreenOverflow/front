@@ -43,7 +43,6 @@ function color(MaxValue, value) {
   if (value > MaxValue * 0.8) {
     return 'green'
   } else if (value > MaxValue * 0.6) {
-    //return '#49BF4D'
     return '#62BF65'
   }  else if (value > MaxValue * 0.4) {
     return '#EE0'
@@ -52,11 +51,6 @@ function color(MaxValue, value) {
   } else {
     return 'red'
   }
-}
-
-function keypressed(e) {
-  console.log(e.key);
-
 }
 
 function setResultConclusion(value, communeName) {
