@@ -41,7 +41,7 @@ function color(MaxValue, value) {
 }
 
 
-function showResult(jsonDump, value) {
+function showResult(value, jsonDump) {
   document.getElementById("global-score").innerText = jsonDump["global"];
   document.getElementById("global-score-indicator").style.backgroundColor = color(276, jsonDump["global"]);
 
