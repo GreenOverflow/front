@@ -13,7 +13,7 @@
 <body>
 
 <div id="search-div">
-    <input type="text" id="searchbar" name="q" placeholder="Recherchez ici votre code postal">
+    <input onkeydown="keypressed(event)" type="text" id="searchbar" name="q" placeholder="Recherchez ici votre code postal">
     <button onclick="search()" id="searchButton" type="button">Rechercher</button>
     <a class="linkButton" id="pdfDownload" target="_blank" href="">
         <button id="pdfDownloadButton">Télécharger le résultat au format PDF</button>

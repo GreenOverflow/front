@@ -40,6 +40,12 @@ function color(MaxValue, value) {
   }
 }
 
+function keypressed(event){
+  if (event.keyCode === 13 || event.which === 13){
+    search()
+  }
+}
+
 function setResultConclusion(value) {
   console.log(value);
   let maxValue = 276;
